@@ -4,11 +4,10 @@
 using namespace std;
 
 int solution(int n, int t) {
-    int answer = 0;
+    int answer = n;
     
     for (int i = 0; i < t ; i++) {
-        n *= 2;
-        answer = n;
+        answer *= 2;
     }
     
     return answer;
