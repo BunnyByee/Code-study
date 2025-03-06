@@ -10,14 +10,11 @@ int solution(int num) {
     while (answer < 500) {
         if (answer == 0 && n == 1) break;
         
-        if (n%2 == 0) n /= 2;
-        else n = n*3 + 1;
-        
+        n = (n%2 == 0) ? n / 2 : n*3 + 1;
         answer++;
+        
         if (n == 1) break;
     }
     
-    if (answer == 500) answer = -1;
-    
-    return answer;
+    return answer == 500 ? -1 : answer;
 }
