@@ -8,13 +8,9 @@ string solution(string rny_string) {
     string str = rny_string;
     int size = str.length();
     
-    for (int i=0 ; i < size; i++){
-        if (str[i] == 'm') {
-            answer.append("rn");
-        }
-        else{
-            answer += (str[i]);
-        }
+    for (char c : str){
+        if (c == 'm') answer += "rn";
+        else answer += c;
     }
     return answer;
 }
