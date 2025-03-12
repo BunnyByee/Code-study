@@ -18,8 +18,8 @@ vector<int> solution(vector<int> arr) {
         else if (stk.back() < arr[i]) {
                 stk.push_back(arr[i]);
                 i++;
-            }
-             // -> stk 마지막 원소 >= arr[i] 이라면 stk 마지막 원소 제거.
+        }
+        // -> stk 마지막 원소 >= arr[i] 이라면 stk 마지막 원소 제거.
         else stk.pop_back();
         
     }
