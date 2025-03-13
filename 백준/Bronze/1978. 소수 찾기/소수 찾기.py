@@ -1,15 +1,17 @@
+import math
+
 k = int(input())
 n_list = list(map(int, input().split()))
 
-answer = []
+count = 0
 for n in n_list :
-    count = 0
-
-    for j in range(1, n+1):
-        if n % j == 0 :
-            count += 1
+    if (n == 1) :
+            continue
     
-    if (count == 2):
-        answer.append(n)
+    for j in range(2, int(math.sqrt(n))+1):
+        if n % j == 0 :
+            break
+    else :
+        count += 1
 
-print(len(answer))
+print(count)
