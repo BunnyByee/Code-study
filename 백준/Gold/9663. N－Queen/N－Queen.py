@@ -1,35 +1,35 @@
-N = int(input())
-cols = set()
-diag1 = set()
-diag2 = set()
+## method
+def sol(k): # k : 놓은 말 개수 - 점유 행 번호로도 활용 가능
+    # 퀸 : 상하좌우 - x, y 좌표 확인 / 대각선 - (y=x 선상 : used_up) r+c 같으면. (y=-x 선상 : used_down) r-c같으면 놓을 수 없음.
+    global n, cnt
+    
+    if k == n :
+        cnt += 1
+        return
+
+    # i : 점유 열 번호로 활용 가능
+    for i in range(n):
+        if not used_c[i] and not used_up[k+i] and not used_down[(n-1)+k-i]:
+            used_c[i] = True
+            used_up[k+i] = True
+            used_down[(n-1)+k-i] = True
+            sol(k+1)
+            used_c[i] = False
+            used_up[k+i] = False
+            used_down[(n-1)+k-i] = False
+
+## input
+n = int(input())
+maps = [[0]*n for _ in range(n)]
+# 열 점유 여부
+used_c = [False]*n
+# y = x 선상 점유 여부
+used_up = [False]*(2*(n-1)+1)
+# y = -x 선상 점유 여부
+used_down = [False]*(2*(n-1)+1)
+
 cnt = 0
 
-def dfs(row):
-    global cnt
-    # 종료조건
-    if row == N :
-        cnt += 1
-        return 
-    
-    # 각 열마다 가능한지 확인
-    for col in range(N) :
-        # 조건 확인 (같은 열이거나, 왼쪽 대각선이거나, 오른쪽 대각선이라면)
-        if col in cols or (row-col) in diag1 or (row+col) in diag2 :
-            continue
-        # 가능하면 퀸을 놓기
-        cols.add(col)
-        diag1.add(row - col)
-        diag2.add(row+col)
-
-        # 다음 행 탐색
-        dfs(row+1)
-
-        # 다른 열도 탐색 : 백트래킹
-        # 집합은 순서가 없기 때문에 값을 지정해서 제거
-        cols.remove(col)
-        diag1.remove(row-col)
-        diag2.remove(row+col)
-
-# 0행 부터 시작!
-dfs(0)
+## output
+sol(0)
 print(cnt)
