@@ -2,21 +2,17 @@
 using namespace std;
 
 int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	
 	int t, a, b;
-	string s;
+	char c;
 	
-	cin >> t;
+	if (!(cin>>t)) return 0;
 	
-	while(t>0){
-		cin >> s;
-		
-		// 문자형 숫자를 정수형으로 바꾸는 법 
-		a = s[0] - '0';
-		b = s[2] - '0';
-		
-		cout << a+b << '\n';
-		
-		t--;
+	while(t--){
+		cin >> a >> c >> b;
+		cout << a + b << '\n';
 	}
 	
 	return 0;
