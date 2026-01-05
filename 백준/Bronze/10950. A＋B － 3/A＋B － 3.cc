@@ -1,15 +1,14 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-	int T;
-
+int main(){
+	int T, A, B;
+	
 	cin >> T;
-
-	for (int i = 0; i < T; i++) {
-		int a, b;
-		cin >> a >> b;
-		cout << a + b << endl;
+	
+	while(T>0){
+		cin >> A >> B;
+		cout << A+B << '\n';
+		T--;
 	}
-
 }
