@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <iomanip>
 using namespace std;
 
 int main(){
@@ -12,17 +13,9 @@ int main(){
 	int mon = t->tm_mon +1;
 	int day = t->tm_mday;
 	
-	cout << year << "-";
-	
-	if (mon < 10)
-		cout << "0" << mon << "-";
-	else
-		cout << mon << "-";
-	
-	if (day < 10)
-		cout << "0" << day;
-	else
-		cout << day;
+	cout << year << "-"
+         << setw(2) << setfill('0') << mon << "-"
+         << setw(2) << setfill('0') << day;
 	
 	return 0;
 }
